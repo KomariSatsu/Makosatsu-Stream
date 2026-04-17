@@ -3,7 +3,7 @@ import { db, auth } from './firebase-config';
 import { collection, onSnapshot, query, orderBy, addDoc, updateDoc, deleteDoc, doc, serverTimestamp, setDoc, getDoc, limit } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 
-// --- PINDAHKAN MODAL KE LUAR AGAR TIDAK BUG SAAT MENGETIK ---
+
 const Modal = ({ title, children, onClose }) => (
   <div style={modalOverlay} onClick={onClose}>
     <div style={modalContent} onClick={e => e.stopPropagation()}>
@@ -53,7 +53,7 @@ function Home() {
     status: 'Ongoing', isRecommended: false, coverUrl: '', isInWatchlist: false 
   });
 
-  // --- UPDATE STATE INI AGAR ADA downloadUrl ---
+
   const [newEps, setNewEps] = useState({ epsNumber: '', videoUrl: '', epsTrailer: '', downloadUrl: '' });
 
   // --- DETEKSI LAYAR HP ATAU PC ---
@@ -227,7 +227,7 @@ function Home() {
         epsNumber: Number(newEps.epsNumber), 
         videoUrl: newEps.videoUrl,
         epsTrailer: newEps.epsTrailer || '',
-        downloadUrl: newEps.downloadUrl || '' // Tambahkan baris ini
+        downloadUrl: newEps.downloadUrl || '' 
       };
       if (editMode) {
         await updateDoc(doc(db, "animes", selectedAnime.id, "episodes", editMode), epsData);
