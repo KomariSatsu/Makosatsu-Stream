@@ -1,0 +1,68 @@
+/* 1. Ambil Font Poppins dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* 2. Paksa semua elemen menggunakan Poppins */
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Menghilangkan scroll kanan dan background putih */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Kunci utama agar tidak bisa geser ke kanan */
+  background-color: #141414; /* Pastikan background dasar selalu gelap */
+}
+
+/* Class khusus untuk Gradasi Logo */
+.logo-gradiasi {
+  background: linear-gradient(90deg, #E50914 0%, #ffc107 50%, #E50914 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 10px 15px !important;
+  }
+  
+  /* Agar username panjang tidak mendorong layar ke kanan */
+  .username-text {
+    max-width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+  }
+}
+
+/* Efek saat mouse berada di atas tombol (Hover) */
+button:hover {
+  filter: brightness(0.8); /* Memberikan efek agak gelap/hitam saat disentuh */
+  transform: scale(0.98);   /* Memberikan efek sedikit menekan (seperti diklik) */
+  transition: all 0.2s ease; /* Biar perubahannya halus, tidak kaku */
+  cursor: pointer;
+}
+
+/* Efek khusus untuk daftar episode agar saat mouse lewat ada highlight hitam */
+.episode-item:hover {
+  background-color: #111 !important; /* Hitam pekat saat mouse di atasnya */
+  transition: 0.2s;
+}
+
+/* Efek Hover untuk Card Anime di Home */
+.anime-card-hover {
+  transition: all 0.3s ease !important;
+}
+
+.anime-card-hover:hover {
+  filter: brightness(0.7); /* Membuat card jadi lebih gelap saat mouse di atasnya */
+  transform: translateY(-5px); /* Memberikan efek sedikit terangkat agar keren */
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Bayangan hitam di bawah card */
+}
